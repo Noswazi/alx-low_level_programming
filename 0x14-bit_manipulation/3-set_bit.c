@@ -10,11 +10,12 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	if (index > sizeof(n) * 8)
+	unsigned int i;
+
+	if (index > 63)
 		return (-1);
-	{
-		*n |= 11u << index;
-	}
+	i = 1 << index;
+	*n = (*n | i);
 
 	return (1);
 }
